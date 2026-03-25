@@ -1,0 +1,33 @@
+{
+    "samdu_title": "Sharof Rashidov nomidagi <br> Samarqand davlat universiteti",
+    "samdu_line1": "Sharof Rashidov nomidagi",
+  "samdu_line2": "Samarqand davlat universiteti",
+  "social_networks": "Biz ijtimoiy tarmoqlarda",
+  "our_address": "Bizning manzil",
+  "address_text": "Universitet xiyoboni, 15-uy",
+  "helpline": "Ishonch telefoni:",
+  "map": "Xarita",
+  "copyright": "© Samarqand davlat universiteti,",
+  "rights_reserved": "Sayt materiallaridan to'liq yoki qisman foydalanilganda ushbu manbani ko'rsatish majburiy.",
+
+  "news": "Yangiliklar",
+  "announcements": "E'lonlar",
+  "news_title": "So'nggi yangiliklar",
+  "announcements_title": "So'nggi e'lonlar",
+  "all_news": "Barcha yangiliklar",
+  "all_announcements": "Barcha e'lonlar",
+  "stat_professors": "Professor-o'qituvchilar",
+  "stat_students": "Kunduzgi va kechki talabalar",
+  "stat_library": "ARM fondi",
+  "stat_bachelors": "Bakalavr yo'nalishlari",
+  "bizning_erishgan_yutuqlarimiz": "BIZNING ERISHGAN YUTUQLARIMIZ",
+  "foydali_saytlar": "Foydali saytlar",
+  "site_constitution": "O'zbekiston Respublikasi Konstitutsiyasi",
+  "site_ministry": "Oliy ta'lim, fan va innovatsiyalar vazirligi",
+  "site_government": "O'zbekiston Respublikasi hukumat portali",
+  "site_mygov": "Yagona interaktiv davlat xizmatlari portali",
+  "site_uza": "O'zbekiston Milliy axborot agentligi",
+  "back" : "Orqaga"
+  
+  
+}
