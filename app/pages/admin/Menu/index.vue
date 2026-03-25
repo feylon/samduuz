@@ -7,7 +7,7 @@
   <div v-else class="p-6 mx-auto min-h-screen bg-gray-50 max-w-7xl">
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold text-gray-800">Menyular boshqaruvi</h1>
-      <UButton icon="i-heroicons-plus" color="primary" @click="handleAdd(null, null)">
+      <UButton icon="i-heroicons-plus" color="secondary" @click="handleAdd(null, null)">
         Asosiy menyu qo'shish
       </UButton>
     </div>

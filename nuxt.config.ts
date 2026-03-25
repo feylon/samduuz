@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     }
   },
 
-  ssr: false,
+  ssr: true,
   i18n: {
     locales: [
       { code: 'uz', iso: 'uz-UZ', name: "O'zbek", file: 'uz.json', icon: 'i-circle-flags-uz' },

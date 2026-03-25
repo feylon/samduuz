@@ -144,7 +144,8 @@ const links = [
   { label: "Sahifalar", icon: "i-heroicons-document-duplicate", to: "/admin/pages" },
   { label: "Slaydlar", icon: "i-heroicons-photo", to: "/admin/sliders" },
   { label: "Fayllar", icon: "i-heroicons-folder", to: "/admin/files" },
-  { label: "Menyu", icon: "i-heroicons-bars-3", to: "/admin/menu" }
+  { label: "Menyu", icon: "i-heroicons-bars-3", to: "/admin/menu" },
+  { label: "Foydali havolalar", icon: "i-heroicons-link", to: "/admin/useful-links" }
 
 ];
 
