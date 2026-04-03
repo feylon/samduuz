@@ -7,7 +7,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
 import { envValidationSchema } from './config/env.validation';
 import { buildDataSourceOptions } from './database/typeorm.config';
+import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { HealthModule } from './modules/health/health.module';
       serveStaticOptions: { index: false, maxAge: '7d' },
     }),
     HealthModule,
+    UsersModule,
+    AuthModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })

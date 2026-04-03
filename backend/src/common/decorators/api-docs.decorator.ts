@@ -13,6 +13,7 @@ interface ApiDocsOptions {
   status?: HttpStatus.OK | HttpStatus.CREATED;
   message?: string;
   auth?: boolean;
+  unauthorized?: string;
   validation?: boolean;
   notFound?: string;
   conflict?: string;
@@ -93,13 +94,18 @@ export const ApiDocs = (options: ApiDocsOptions) => {
     ),
   ];
 
-  if (options.auth) {
+  if (options.auth) decorators.push(Auth());
+
+  if (options.auth || options.unauthorized) {
     decorators.push(
-      Auth(),
       errorResponse(
         HttpStatus.UNAUTHORIZED,
-        'Token yuborilmagan, noto‘g‘ri yoki muddati tugagan',
-        errorExample(401, 'Avtorizatsiyadan o‘tilmagan yoki token muddati tugagan', '/api/...'),
+        options.unauthorized ?? 'Token yuborilmagan, noto‘g‘ri yoki muddati tugagan',
+        errorExample(
+          401,
+          options.unauthorized ?? 'Avtorizatsiyadan o‘tilmagan yoki token muddati tugagan',
+          '/api/...',
+        ),
       ),
     );
   }
