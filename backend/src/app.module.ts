@@ -9,6 +9,7 @@ import { envValidationSchema } from './config/env.validation';
 import { buildDataSourceOptions } from './database/typeorm.config';
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
+import { PagesModule } from './modules/pages/pages.module';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -31,6 +32,7 @@ import { UsersModule } from './modules/users/users.module';
     HealthModule,
     UsersModule,
     AuthModule,
+    PagesModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })

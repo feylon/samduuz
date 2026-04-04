@@ -2,6 +2,7 @@ import { applyDecorators, HttpCode, HttpStatus, Type } from '@nestjs/common';
 import { ApiExtraModels, ApiOperation, ApiResponse, getSchemaPath } from '@nestjs/swagger';
 import { ErrorResponseDto, PaginationMetaDto } from '../dto/api-response.dto';
 import { Auth } from './auth.decorator';
+import { ID_ERROR } from './id-param.decorator';
 import { ResponseMessage } from './response-message.decorator';
 
 interface ApiDocsOptions {
@@ -18,6 +19,7 @@ interface ApiDocsOptions {
   notFound?: string;
   conflict?: string;
   badRequest?: string;
+  withId?: boolean;
   payloadTooLarge?: boolean;
 }
 
@@ -120,13 +122,10 @@ export const ApiDocs = (options: ApiDocsOptions) => {
         ]),
       ),
     );
-  } else if (options.badRequest) {
+  } else if (options.badRequest || options.withId) {
+    const text = options.badRequest ?? ID_ERROR;
     decorators.push(
-      errorResponse(
-        HttpStatus.BAD_REQUEST,
-        options.badRequest,
-        errorExample(400, options.badRequest, '/api/...'),
-      ),
+      errorResponse(HttpStatus.BAD_REQUEST, text, errorExample(400, text, '/api/...')),
     );
   }
 

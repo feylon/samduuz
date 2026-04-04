@@ -62,7 +62,10 @@ async function bootstrap() {
 
   app.enableShutdownHooks();
   await app.listen(port, '0.0.0.0');
-  Logger.log(`API: http://localhost:${port}/api | Swagger: http://localhost:${port}/docs`, 'Bootstrap');
+  Logger.log(
+    `API: http://localhost:${port}/api | Swagger: http://localhost:${port}/docs`,
+    'Bootstrap',
+  );
 }
 
 void bootstrap();
