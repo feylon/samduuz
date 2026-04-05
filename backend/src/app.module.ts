@@ -7,8 +7,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
 import { envValidationSchema } from './config/env.validation';
 import { buildDataSourceOptions } from './database/typeorm.config';
+import { AnnouncementsModule } from './modules/announcements/announcements.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
+import { NewsModule } from './modules/news/news.module';
 import { PagesModule } from './modules/pages/pages.module';
 import { UsersModule } from './modules/users/users.module';
 
@@ -33,6 +35,8 @@ import { UsersModule } from './modules/users/users.module';
     UsersModule,
     AuthModule,
     PagesModule,
+    NewsModule,
+    AnnouncementsModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
