@@ -10,8 +10,11 @@ import { buildDataSourceOptions } from './database/typeorm.config';
 import { AnnouncementsModule } from './modules/announcements/announcements.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
+import { MenusModule } from './modules/menus/menus.module';
 import { NewsModule } from './modules/news/news.module';
 import { PagesModule } from './modules/pages/pages.module';
+import { SlidesModule } from './modules/slides/slides.module';
+import { UsefulLinksModule } from './modules/useful-links/useful-links.module';
 import { UsersModule } from './modules/users/users.module';
 
 @Module({
@@ -37,6 +40,9 @@ import { UsersModule } from './modules/users/users.module';
     PagesModule,
     NewsModule,
     AnnouncementsModule,
+    SlidesModule,
+    MenusModule,
+    UsefulLinksModule,
   ],
   providers: [{ provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
