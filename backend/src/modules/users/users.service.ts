@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import * as bcrypt from 'bcryptjs';
 import { Repository } from 'typeorm';
-import { UserRole } from '../../common/enums/user-role.enum';
 import { User } from './entities/user.entity';
 
 @Injectable()
@@ -36,19 +35,5 @@ export class UsersService {
       passwordHash: await bcrypt.hash(password, 10),
       refreshTokenHash: null,
     });
-  }
-
-  async ensureAdmin(username: string, password: string, fullName: string) {
-    const exists = await this.users.exists({ where: { username } });
-    if (exists) return false;
-    await this.users.save(
-      this.users.create({
-        username,
-        fullName,
-        role: UserRole.Admin,
-        passwordHash: await bcrypt.hash(password, 10),
-      }),
-    );
-    return true;
   }
 }

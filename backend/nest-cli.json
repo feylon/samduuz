@@ -9,8 +9,17 @@
         "name": "@nestjs/swagger",
         "options": {
           "classValidatorShim": true,
-          "introspectComments": false
+          "introspectComments": false,
+          "controllerFileNameSuffix": [
+            ".docs-disabled.ts"
+          ]
         }
+      }
+    ],
+    "assets": [
+      {
+        "include": "database/seeds/assets/**/*",
+        "watchAssets": false
       }
     ]
   }
