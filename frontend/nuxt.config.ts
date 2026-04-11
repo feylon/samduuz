@@ -1,34 +1,57 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/ui',
-    '@nuxtjs/i18n'
-  ],
+  modules: ['@nuxt/eslint', '@nuxt/ui', '@nuxtjs/i18n'],
 
-  devtools: {
-    enabled: true
-  },
-  ui: {
-    colorMode: false
-  },
-
-  runtimeConfig: {
-    apiSecret: '',
-
-    public: {
-      api: 'http://localhost:5454/api/',
-      URL: 'http://localhost:5454/uploads/'
-    }
-  },
+  devtools: { enabled: false },
 
   css: ['~/assets/css/main.css'],
 
-  routeRules: {
-    '/': { prerender: true }
+  runtimeConfig: {
+    apiInternal: '',
+    public: {
+      apiBase: 'http://localhost:5454/api',
+      uploadsBase: 'http://localhost:5454/uploads',
+      siteUrl: 'http://localhost:3000',
+      siteName: 'SamDU',
+      i18n: {
+        baseUrl: 'http://localhost:3000'
+      }
+    }
   },
 
-  compatibilityDate: '2025-01-15',
+  app: {
+    head: {
+      htmlAttrs: { lang: 'uz' },
+      titleTemplate: '%s · SamDU',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
+        { name: 'theme-color', content: '#0b2d5b' },
+        { name: 'format-detection', content: 'telephone=no' }
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/png', href: '/icon-192.png' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' }
+      ]
+    }
+  },
+
+  routeRules: {
+    '/admin/**': { ssr: false, headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+    '/auth/**': { ssr: false, headers: { 'X-Robots-Tag': 'noindex, nofollow' } }
+  },
+
+  compatibilityDate: '2025-07-15',
+
+  nitro: {
+    compressPublicAssets: true
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ['zod']
+    }
+  },
 
   eslint: {
     config: {
@@ -39,47 +62,37 @@ export default defineNuxtConfig({
     }
   },
 
-  app: {
-    head: {
-      titleTemplate: '%s - SamDU.uz',
-      title: 'SamDU.uz',
+  fonts: {
+    defaults: {
+      weights: [400, 500, 600, 700, 800],
+      subsets: ['latin', 'latin-ext', 'cyrillic', 'cyrillic-ext']
     }
   },
 
-  ssr: true,
+  icon: {
+    serverBundle: {
+      collections: ['lucide', 'simple-icons', 'circle-flags']
+    }
+  },
+
   i18n: {
-    locales: [
-      { code: 'uz', iso: 'uz-UZ', name: "O'zbek", file: 'uz.json', icon: 'i-circle-flags-uz' },
-      { code: 'kr', iso: 'uz-UZ', name: 'Ўзбек', file: 'uz-cyrl.json', icon: 'i-circle-flags-uz' },
-      { code: 'ru', iso: 'ru-RU', name: 'Русский', file: 'ru.json', icon: 'i-circle-flags-ru' },
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json', icon: 'i-circle-flags-gb' }
-    ],
-    // lazy: true,
-    langDir: 'locales',
+    strategy: 'prefix_except_default',
     defaultLocale: 'uz',
-
-    // 1-ASOSIY QISM: URL ni o'zgartirmaslik uchun
-    strategy: 'no_prefix',
-    compilation: {
-      strictMessage: false // <-- HTML teglarni xato deb hisoblamaslik uchun shu qator qo'shiladi
-    },
-
-    // 2-ASOSIY QISM: Tilni brauzer xotirasida (Cookie'da) saqlash uchun
+    langDir: 'locales',
+    customRoutes: 'meta',
+    locales: [
+      { code: 'uz', language: 'uz-Latn-UZ', name: 'O‘zbekcha', file: 'uz.json' },
+      { code: 'kr', language: 'uz-Cyrl-UZ', name: 'Ўзбекча', file: 'kr.json' },
+      { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
+    ],
     detectBrowserLanguage: {
-      useCookie: true,           // LocalStorage o'rniga Cookie ishlatish (Nuxt uchun eng yaxshisi)
-      cookieKey: 'i18n_redirected', // Xotirada saqlanadigan nom
-      redirectOn: 'root',
-      alwaysRedirect: true       // Har safar kirganda saqlangan tilni ochib beradi
+      useCookie: true,
+      cookieKey: 'samdu_lang',
+      redirectOn: 'root'
+    },
+    compilation: {
+      strictMessage: false
     }
-  },
-
-
-  components: {
-    dirs: [
-      '~/components',
-      '~/components/main',
-      '~/components/main/Pages'
-    ]
   }
-
 })

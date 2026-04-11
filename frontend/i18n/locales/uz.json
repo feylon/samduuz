@@ -1,33 +1,101 @@
 {
-    "samdu_title": "Sharof Rashidov nomidagi <br> Samarqand davlat universiteti",
-    "samdu_line1": "Sharof Rashidov nomidagi",
-  "samdu_line2": "Samarqand davlat universiteti",
-  "social_networks": "Biz ijtimoiy tarmoqlarda",
-  "our_address": "Bizning manzil",
-  "address_text": "Universitet xiyoboni, 15-uy",
-  "helpline": "Ishonch telefoni:",
-  "map": "Xarita",
-  "copyright": "© Samarqand davlat universiteti,",
-  "rights_reserved": "Sayt materiallaridan to'liq yoki qisman foydalanilganda ushbu manbani ko'rsatish majburiy.",
-
-  "news": "Yangiliklar",
-  "announcements": "E'lonlar",
-  "news_title": "So'nggi yangiliklar",
-  "announcements_title": "So'nggi e'lonlar",
-  "all_news": "Barcha yangiliklar",
-  "all_announcements": "Barcha e'lonlar",
-  "stat_professors": "Professor-o'qituvchilar",
-  "stat_students": "Kunduzgi va kechki talabalar",
-  "stat_library": "ARM fondi",
-  "stat_bachelors": "Bakalavr yo'nalishlari",
-  "bizning_erishgan_yutuqlarimiz": "BIZNING ERISHGAN YUTUQLARIMIZ",
-  "foydali_saytlar": "Foydali saytlar",
-  "site_constitution": "O'zbekiston Respublikasi Konstitutsiyasi",
-  "site_ministry": "Oliy ta'lim, fan va innovatsiyalar vazirligi",
-  "site_government": "O'zbekiston Respublikasi hukumat portali",
-  "site_mygov": "Yagona interaktiv davlat xizmatlari portali",
-  "site_uza": "O'zbekiston Milliy axborot agentligi",
-  "back" : "Orqaga"
-  
-  
+  "site": {
+    "line1": "Sharof Rashidov nomidagi",
+    "line2": "Samarqand davlat universiteti",
+    "short": "SamDU",
+    "full": "Sharof Rashidov nomidagi Samarqand davlat universiteti",
+    "description": "Sharof Rashidov nomidagi Samarqand davlat universitetining rasmiy sayti: yangiliklar, e’lonlar, fakultetlar, kafedralar va qabul haqida ma’lumotlar.",
+    "address": "Samarqand sh., Universitet xiyoboni, 15-uy"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "menu": "Menyu",
+    "open_menu": "Menyuni ochish",
+    "close_menu": "Menyuni yopish",
+    "skip": "Asosiy mazmunga o‘tish",
+    "language": "Til",
+    "theme_light": "Yorug‘ rejim",
+    "theme_dark": "Tungi rejim",
+    "loading": "Yuklanmoqda..."
+  },
+  "quick": {
+    "hemis": "HEMIS tizimi",
+    "admission": "Qabul-2026",
+    "library": "Elektron kutubxona",
+    "virtual": "Virtual qabulxona"
+  },
+  "home": {
+    "hero_badge": "1927-yildan buyon",
+    "hero_more": "Batafsil",
+    "news_eyebrow": "Universitet hayoti",
+    "news_title": "So‘nggi yangiliklar",
+    "all_news": "Barcha yangiliklar",
+    "announcements_eyebrow": "Muhim ma’lumotlar",
+    "announcements_title": "E’lonlar",
+    "all_announcements": "Barcha e’lonlar",
+    "stats_eyebrow": "Raqamlarda SamDU",
+    "stats_title": "Bizning yutuqlarimiz",
+    "stat_professors": "Professor-o‘qituvchilar",
+    "stat_students": "Kunduzgi va kechki ta’lim talabalari",
+    "stat_library": "Axborot-resurs markazi fondi",
+    "stat_bachelors": "Bakalavriat yo‘nalishlari",
+    "links_eyebrow": "Hamkorlar",
+    "links_title": "Foydali saytlar"
+  },
+  "content": {
+    "read_more": "Batafsil o‘qish",
+    "views": "{n} marta ko‘rildi",
+    "likes": "Yoqdi",
+    "liked": "Rahmat!",
+    "share": "Ulashish",
+    "copy_link": "Havolani nusxalash",
+    "link_copied": "Havola nusxalandi",
+    "related_news": "Boshqa yangiliklar",
+    "related_announcements": "Boshqa e’lonlar",
+    "back": "Orqaga",
+    "search": "Qidirish...",
+    "empty_title": "Hozircha ma’lumot yo‘q",
+    "empty_text": "Bu bo‘limga tez orada materiallar qo‘shiladi.",
+    "nothing_found": "“{q}” bo‘yicha hech narsa topilmadi",
+    "updated": "Yangilangan",
+    "published": "Chop etilgan",
+    "news_description": "Samarqand davlat universitetining so‘nggi yangiliklari, tadbirlari va yutuqlari.",
+    "announcements_description": "Samarqand davlat universitetining rasmiy e’lonlari: qabul, tanlovlar, seminarlar va boshqalar.",
+    "load_error": "Ma’lumotlarni yuklab bo‘lmadi. Birozdan so‘ng qayta urinib ko‘ring.",
+    "retry": "Qayta urinish"
+  },
+  "employee": {
+    "contacts": "Aloqa ma’lumotlari",
+    "email": "Elektron pochta",
+    "phone": "Telefon",
+    "reception": "Qabul kunlari",
+    "work_hours": "Ish vaqti",
+    "address": "Manzil",
+    "birth_date": "Tug‘ilgan sana",
+    "biography": "Tarjimai hol"
+  },
+  "department": {
+    "contacts": "Aloqa ma’lumotlari",
+    "about": "Kafedra haqida",
+    "socials": "Ijtimoiy tarmoqlar"
+  },
+  "footer": {
+    "about": "Markaziy Osiyodagi eng qadimiy oliy ta’lim muassasalaridan biri. Ilm, tarbiya va innovatsiyalar maskani.",
+    "social": "Ijtimoiy tarmoqlar",
+    "contacts": "Bog‘lanish",
+    "helpline": "Ishonch telefoni",
+    "reception": "Devonxona",
+    "map": "Xaritada",
+    "rights": "Barcha huquqlar himoyalangan.",
+    "notice": "Sayt materiallaridan foydalanilganda manba ko‘rsatilishi shart.",
+    "sections": "Bo‘limlar"
+  },
+  "error": {
+    "not_found": "Sahifa topilmadi",
+    "not_found_text": "Siz qidirayotgan sahifa o‘chirilgan, nomi o‘zgartirilgan yoki vaqtincha mavjud emas.",
+    "server": "Kutilmagan xatolik",
+    "server_text": "Tizimda muammo yuz berdi. Birozdan so‘ng qayta urinib ko‘ring.",
+    "home": "Bosh sahifaga",
+    "back": "Orqaga qaytish"
+  }
 }

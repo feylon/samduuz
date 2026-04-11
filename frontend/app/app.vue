@@ -1,29 +1,23 @@
-<script setup>
+<script setup lang="ts">
+const head = useLocaleHead({ seo: true })
+const { t } = useI18n()
+
 useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-  ],
-  link: [
-    { rel: 'icon', href: '/favicon.ico' }
-  ],
-  htmlAttrs: {
-    lang: 'en'
-  }
+  htmlAttrs: { lang: () => head.value.htmlAttrs?.lang },
+  link: () => head.value.link ?? [],
+  meta: () => head.value.meta ?? []
 })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
-
 useSeoMeta({
-  
+  description: () => t('site.description')
 })
 </script>
 
 <template>
-  
-  <UApp>
-  <NuxtLayout>
-  <NuxtPage />
-  </NuxtLayout>
+  <UApp :toaster="{ position: 'top-right' }" :tooltip="{ delayDuration: 200 }">
+    <NuxtLoadingIndicator color="var(--ui-color-secondary-400)" :height="3" />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </UApp>
 </template>
