@@ -45,7 +45,11 @@ useSiteSeo({
 
 <template>
   <div>
-    <ContentPageHero :title="title" :description="description" :breadcrumbs="[{ label: title }]">
+    <ContentPageHero
+      :title="title"
+      :description="description"
+      :breadcrumbs="[{ label: title }]"
+    >
       <div class="mt-8 max-w-md">
         <UInput
           v-model="search"
@@ -60,8 +64,14 @@ useSiteSeo({
     </ContentPageHero>
 
     <section class="container-page py-10 sm:py-14">
-      <div v-if="pending && !data" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <ContentCardSkeleton v-for="n in 6" :key="n" />
+      <div
+        v-if="pending && !data"
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <ContentCardSkeleton
+          v-for="n in 6"
+          :key="n"
+        />
       </div>
 
       <ContentEmptyState
@@ -70,7 +80,11 @@ useSiteSeo({
         :title="$t('content.load_error')"
         text=""
       >
-        <UButton class="mt-4" icon="i-lucide-refresh-cw" @click="() => refresh()">
+        <UButton
+          class="mt-4"
+          icon="i-lucide-refresh-cw"
+          @click="() => refresh()"
+        >
           {{ $t('content.retry') }}
         </UButton>
       </ContentEmptyState>
@@ -82,13 +96,27 @@ useSiteSeo({
       />
 
       <template v-else>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" :class="{ 'opacity-60 transition-opacity': pending }">
-          <div v-for="(item, index) in data.items" :key="item.id" v-reveal="(index % 3) * 70">
-            <ContentPublicationCard :item="item" :base="base" :eager="index < 3" />
+        <div
+          class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          :class="{ 'opacity-60 transition-opacity': pending }"
+        >
+          <div
+            v-for="(item, index) in data.items"
+            :key="item.id"
+            v-reveal="(index % 3) * 70"
+          >
+            <ContentPublicationCard
+              :item="item"
+              :base="base"
+              :eager="index < 3"
+            />
           </div>
         </div>
 
-        <div v-if="data.meta.totalPages > 1" class="mt-12 flex justify-center">
+        <div
+          v-if="data.meta.totalPages > 1"
+          class="mt-12 flex justify-center"
+        >
           <UPagination
             :page="page"
             :total="data.meta.totalCount"

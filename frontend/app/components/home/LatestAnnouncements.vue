@@ -19,12 +19,29 @@ const localePath = useLocalePath()
         :link-label="$t('home.all_announcements')"
       />
 
-      <div v-if="pending && !data" class="grid gap-4 md:grid-cols-2">
-        <USkeleton v-for="n in 4" :key="n" class="h-28 rounded-2xl" />
+      <div
+        v-if="pending && !data"
+        class="grid gap-4 md:grid-cols-2"
+      >
+        <USkeleton
+          v-for="n in 4"
+          :key="n"
+          class="h-28 rounded-2xl"
+        />
       </div>
-      <ContentEmptyState v-else-if="!data?.items.length" icon="i-lucide-megaphone" />
-      <div v-else class="grid gap-4 md:grid-cols-2">
-        <div v-for="(item, index) in data.items" :key="item.id" v-reveal="index * 70">
+      <ContentEmptyState
+        v-else-if="!data?.items.length"
+        icon="i-lucide-megaphone"
+      />
+      <div
+        v-else
+        class="grid gap-4 md:grid-cols-2"
+      >
+        <div
+          v-for="(item, index) in data.items"
+          :key="item.id"
+          v-reveal="index * 70"
+        >
           <ContentAnnouncementRow :item="item" />
         </div>
       </div>

@@ -58,18 +58,38 @@ useJsonLd(() => {
 
 <template>
   <div v-if="page">
-    <ContentPageHero :title="heading" :breadcrumbs="[{ label: heading }]">
+    <ContentPageHero
+      :title="heading"
+      :breadcrumbs="[{ label: heading }]"
+    >
       <p class="mt-5 flex items-center gap-2 text-sm text-white/60">
-        <UIcon name="i-lucide-refresh-cw" class="size-4 text-gold-400" />
+        <UIcon
+          name="i-lucide-refresh-cw"
+          class="size-4 text-gold-400"
+        />
         {{ $t('content.updated') }}: <time :datetime="page.updatedAt">{{ formatDate(page.updatedAt, locale) }}</time>
       </p>
     </ContentPageHero>
 
     <div class="container-page py-10 sm:py-14">
-      <PageViewsEmployeeView v-if="employee" :details="employee" :title="page.title" />
-      <PageViewsDepartmentView v-else-if="department" :details="department" :title="page.title" />
-      <article v-else class="mx-auto max-w-4xl">
-        <div class="rich-content" v-html="page.content" />
+      <PageViewsEmployeeView
+        v-if="employee"
+        :details="employee"
+        :title="page.title"
+      />
+      <PageViewsDepartmentView
+        v-else-if="department"
+        :details="department"
+        :title="page.title"
+      />
+      <article
+        v-else
+        class="mx-auto max-w-4xl"
+      >
+        <div
+          class="rich-content"
+          v-html="page.content"
+        />
       </article>
     </div>
   </div>

@@ -13,8 +13,14 @@ const linkOf = (slide: PublicSlide) => {
 </script>
 
 <template>
-  <section class="relative bg-brand-950" aria-roledescription="carousel">
-    <USkeleton v-if="pending && !slides?.length" class="h-[min(72vh,680px)] min-h-[420px] w-full rounded-none" />
+  <section
+    class="relative bg-brand-950"
+    aria-roledescription="carousel"
+  >
+    <USkeleton
+      v-if="pending && !slides?.length"
+      class="h-[min(72vh,680px)] min-h-[420px] w-full rounded-none"
+    />
 
     <UCarousel
       v-else-if="slides?.length"
@@ -60,7 +66,10 @@ const linkOf = (slide: PublicSlide) => {
             >
               {{ item.title }}
             </component>
-            <p v-if="item.description" class="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            <p
+              v-if="item.description"
+              class="mt-5 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg"
+            >
               {{ item.description }}
             </p>
             <UButton
@@ -79,12 +88,19 @@ const linkOf = (slide: PublicSlide) => {
       </div>
     </UCarousel>
 
-    <div v-else class="relative flex h-[60vh] min-h-[420px] items-center overflow-hidden">
+    <div
+      v-else
+      class="relative flex h-[60vh] min-h-[420px] items-center overflow-hidden"
+    >
       <div class="pointer-events-none absolute inset-0 bg-pattern opacity-[0.06] invert" />
       <div class="pointer-events-none absolute -right-20 top-10 size-96 rounded-full bg-gold-500/20 blur-3xl" />
       <div class="container-page relative pb-16 text-white">
-        <p class="mb-3 text-sm uppercase tracking-[0.2em] text-gold-300">{{ $t('site.line1') }}</p>
-        <h1 class="font-display max-w-3xl text-4xl font-extrabold sm:text-6xl">{{ $t('site.line2') }}</h1>
+        <p class="mb-3 text-sm uppercase tracking-[0.2em] text-gold-300">
+          {{ $t('site.line1') }}
+        </p>
+        <h1 class="font-display max-w-3xl text-4xl font-extrabold sm:text-6xl">
+          {{ $t('site.line2') }}
+        </h1>
       </div>
     </div>
   </section>

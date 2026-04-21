@@ -45,7 +45,10 @@ useJsonLd(() => ({
       <h1 class="font-display max-w-4xl text-2xl font-extrabold leading-tight sm:text-4xl lg:text-[2.75rem]">
         {{ title }}
       </h1>
-      <p v-if="description" class="mt-4 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
+      <p
+        v-if="description"
+        class="mt-4 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base"
+      >
         {{ description }}
       </p>
       <slot />

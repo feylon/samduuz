@@ -15,7 +15,10 @@ import { quickLinks } from '~/constants/site'
         class="group flex items-center gap-3 bg-default p-4 transition-colors hover:bg-elevated sm:gap-4 sm:p-6"
       >
         <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-all group-hover:bg-secondary group-hover:text-brand-950 sm:size-12">
-          <UIcon :name="link.icon" class="size-5 sm:size-6" />
+          <UIcon
+            :name="link.icon"
+            class="size-5 sm:size-6"
+          />
         </span>
         <span class="min-w-0 text-sm font-semibold leading-tight text-highlighted sm:text-base">
           {{ $t(link.key) }}

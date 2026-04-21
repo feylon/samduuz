@@ -33,12 +33,24 @@ onMounted(() => {
   <div class="hidden bg-brand-950 text-white/80 md:block">
     <div class="container-page flex h-10 items-center justify-between gap-6 text-[13px]">
       <div class="flex items-center gap-5">
-        <a :href="`mailto:${contacts.email}`" class="flex items-center gap-1.5 transition-colors hover:text-white">
-          <UIcon name="i-lucide-mail" class="size-3.5" />
+        <a
+          :href="`mailto:${contacts.email}`"
+          class="flex items-center gap-1.5 transition-colors hover:text-white"
+        >
+          <UIcon
+            name="i-lucide-mail"
+            class="size-3.5"
+          />
           {{ contacts.email }}
         </a>
-        <a :href="`tel:${contacts.phone.replace(/\s/g, '')}`" class="flex items-center gap-1.5 transition-colors hover:text-white">
-          <UIcon name="i-lucide-phone" class="size-3.5" />
+        <a
+          :href="`tel:${contacts.phone.replace(/\s/g, '')}`"
+          class="flex items-center gap-1.5 transition-colors hover:text-white"
+        >
+          <UIcon
+            name="i-lucide-phone"
+            class="size-3.5"
+          />
           {{ contacts.phone }}
         </a>
       </div>
@@ -51,7 +63,10 @@ onMounted(() => {
           rel="noopener"
           class="hidden items-center gap-1.5 transition-colors hover:text-gold-300 xl:flex"
         >
-          <UIcon :name="link.icon" class="size-3.5" />
+          <UIcon
+            :name="link.icon"
+            class="size-3.5"
+          />
           {{ $t(link.key) }}
         </a>
         <span class="hidden h-4 w-px bg-white/20 xl:block" />
@@ -65,7 +80,10 @@ onMounted(() => {
             :aria-label="social.label"
             class="transition-colors hover:text-gold-300"
           >
-            <UIcon :name="social.icon" class="size-3.5" />
+            <UIcon
+              :name="social.icon"
+              class="size-3.5"
+            />
           </a>
         </div>
       </div>
@@ -81,15 +99,29 @@ onMounted(() => {
     <div class="container-page flex h-[var(--header-height)] items-center justify-between gap-4">
       <SiteAppLogo class="max-w-[70%] lg:max-w-xs xl:max-w-sm" />
 
-      <SiteDesktopNav v-if="menus.length" :items="menus" class="h-full" />
-      <div v-else-if="pending" class="hidden gap-3 lg:flex">
-        <USkeleton v-for="n in 5" :key="n" class="h-5 w-20" />
+      <SiteDesktopNav
+        v-if="menus.length"
+        :items="menus"
+        class="h-full"
+      />
+      <div
+        v-else-if="pending"
+        class="hidden gap-3 lg:flex"
+      >
+        <USkeleton
+          v-for="n in 5"
+          :key="n"
+          class="h-5 w-20"
+        />
       </div>
 
       <div class="flex shrink-0 items-center gap-1">
         <SiteLangSwitch class="hidden sm:flex" />
         <ClientOnly>
-          <UColorModeButton color="neutral" variant="ghost" />
+          <UColorModeButton
+            color="neutral"
+            variant="ghost"
+          />
           <template #fallback>
             <div class="size-8" />
           </template>
@@ -111,7 +143,7 @@ onMounted(() => {
     v-model:open="mobileOpen"
     side="left"
     :title="$t('nav.menu')"
-    :close="{ 'aria-label': $t('nav.close_menu') }"
+    :close="{ color: 'neutral', variant: 'ghost' }"
     :ui="{ content: 'max-w-sm', body: 'p-3 sm:p-4' }"
   >
     <template #title>
@@ -146,19 +178,37 @@ onMounted(() => {
             rel="noopener"
             class="flex items-center gap-2 rounded-xl border border-default p-3 text-xs font-medium transition-colors hover:border-primary hover:text-primary"
           >
-            <UIcon :name="link.icon" class="size-4 shrink-0 text-secondary" />
+            <UIcon
+              :name="link.icon"
+              class="size-4 shrink-0 text-secondary"
+            />
             {{ $t(link.key) }}
           </a>
         </div>
 
         <div class="mt-auto space-y-4 border-t border-default pt-4">
-          <SiteLangSwitch block class="sm:hidden" />
+          <SiteLangSwitch
+            block
+            class="sm:hidden"
+          />
           <div class="flex flex-col gap-2 text-sm text-muted">
-            <a :href="`tel:${contacts.phone.replace(/\s/g, '')}`" class="flex items-center gap-2">
-              <UIcon name="i-lucide-phone" class="size-4" /> {{ contacts.phone }}
+            <a
+              :href="`tel:${contacts.phone.replace(/\s/g, '')}`"
+              class="flex items-center gap-2"
+            >
+              <UIcon
+                name="i-lucide-phone"
+                class="size-4"
+              /> {{ contacts.phone }}
             </a>
-            <a :href="`mailto:${contacts.email}`" class="flex items-center gap-2">
-              <UIcon name="i-lucide-mail" class="size-4" /> {{ contacts.email }}
+            <a
+              :href="`mailto:${contacts.email}`"
+              class="flex items-center gap-2"
+            >
+              <UIcon
+                name="i-lucide-mail"
+                class="size-4"
+              /> {{ contacts.email }}
             </a>
           </div>
           <div class="flex gap-2">

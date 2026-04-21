@@ -27,7 +27,7 @@ const facts = computed(() => {
 <template>
   <div class="grid gap-8 lg:grid-cols-12">
     <aside class="lg:col-span-4">
-      <div class="overflow-hidden rounded-3xl border border-default bg-default shadow-sm lg:sticky lg:top-[calc(var(--header-height)+1.5rem)]">
+      <div class="overflow-hidden rounded-2xl border border-default bg-default shadow-sm lg:sticky lg:top-[calc(var(--header-height)+1.5rem)]">
         <div class="relative aspect-[4/5] bg-gradient-to-br from-brand-800 to-brand-950">
           <img
             v-if="details.mainImgURL"
@@ -37,45 +37,82 @@ const facts = computed(() => {
             width="480"
             height="600"
           >
-          <div v-else class="flex size-full items-center justify-center">
-            <UIcon name="i-lucide-user-round" class="size-24 text-white/30" />
+          <div
+            v-else
+            class="flex size-full items-center justify-center"
+          >
+            <UIcon
+              name="i-lucide-user-round"
+              class="size-24 text-white/30"
+            />
           </div>
         </div>
         <div class="p-6">
-          <h2 class="font-display text-xl font-bold text-highlighted">{{ fullName }}</h2>
-          <p v-if="details.position" class="mt-1.5 text-sm leading-relaxed text-muted">{{ details.position }}</p>
+          <h2 class="font-display text-xl font-bold text-highlighted">
+            {{ fullName }}
+          </h2>
+          <p
+            v-if="details.position"
+            class="mt-1.5 text-sm leading-relaxed text-muted"
+          >
+            {{ details.position }}
+          </p>
         </div>
       </div>
     </aside>
 
     <div class="space-y-8 lg:col-span-8">
-      <section v-if="facts.length" class="rounded-3xl border border-default bg-default p-6 sm:p-8">
+      <section
+        v-if="facts.length"
+        class="rounded-2xl border border-default bg-default p-6 sm:p-8"
+      >
         <h2 class="font-display mb-6 flex items-center gap-2 text-lg font-bold text-highlighted">
           <span class="h-5 w-1 rounded-full bg-secondary" />
           {{ $t('employee.contacts') }}
         </h2>
         <dl class="grid gap-5 sm:grid-cols-2">
-          <div v-for="fact in facts" :key="fact.label" class="flex gap-3">
+          <div
+            v-for="fact in facts"
+            :key="fact.label"
+            class="flex gap-3"
+          >
             <span class="flex size-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-              <UIcon :name="fact.icon" class="size-5" />
+              <UIcon
+                :name="fact.icon"
+                class="size-5"
+              />
             </span>
             <div class="min-w-0">
-              <dt class="text-xs uppercase tracking-wide text-dimmed">{{ $t(fact.label) }}</dt>
+              <dt class="text-xs uppercase tracking-wide text-dimmed">
+                {{ $t(fact.label) }}
+              </dt>
               <dd class="mt-0.5 break-words font-medium text-highlighted">
-                <a v-if="fact.href" :href="fact.href" class="hover:text-primary">{{ fact.value }}</a>
-                <template v-else>{{ fact.value }}</template>
+                <a
+                  v-if="fact.href"
+                  :href="fact.href"
+                  class="hover:text-primary"
+                >{{ fact.value }}</a>
+                <template v-else>
+                  {{ fact.value }}
+                </template>
               </dd>
             </div>
           </div>
         </dl>
       </section>
 
-      <section v-if="details.content" class="rounded-3xl border border-default bg-default p-6 sm:p-8">
+      <section
+        v-if="details.content"
+        class="rounded-2xl border border-default bg-default p-6 sm:p-8"
+      >
         <h2 class="font-display mb-5 flex items-center gap-2 text-lg font-bold text-highlighted">
           <span class="h-5 w-1 rounded-full bg-secondary" />
           {{ $t('employee.biography') }}
         </h2>
-        <div class="rich-content" v-html="details.content" />
+        <div
+          class="rich-content"
+          v-html="details.content"
+        />
       </section>
     </div>
   </div>

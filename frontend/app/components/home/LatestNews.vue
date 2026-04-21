@@ -19,22 +19,45 @@ const rest = computed(() => data.value?.items.slice(1) ?? [])
       :link-label="$t('home.all_news')"
     />
 
-    <div v-if="pending && !data" class="grid gap-6 lg:grid-cols-2">
+    <div
+      v-if="pending && !data"
+      class="grid gap-6 lg:grid-cols-2"
+    >
       <ContentCardSkeleton />
       <div class="grid gap-6 sm:grid-cols-2">
-        <ContentCardSkeleton v-for="n in 2" :key="n" />
+        <ContentCardSkeleton
+          v-for="n in 2"
+          :key="n"
+        />
       </div>
     </div>
 
-    <ContentEmptyState v-else-if="error || !featured" icon="i-lucide-newspaper" />
+    <ContentEmptyState
+      v-else-if="error || !featured"
+      icon="i-lucide-newspaper"
+    />
 
-    <div v-else class="grid gap-6 lg:grid-cols-2">
+    <div
+      v-else
+      class="grid gap-6 lg:grid-cols-2"
+    >
       <div v-reveal>
-        <ContentPublicationCard :item="featured" base="/news" featured />
+        <ContentPublicationCard
+          :item="featured"
+          base="/news"
+          featured
+        />
       </div>
       <div class="grid gap-6 sm:grid-cols-2">
-        <div v-for="(item, index) in rest" :key="item.id" v-reveal="(index + 1) * 80">
-          <ContentPublicationCard :item="item" base="/news" />
+        <div
+          v-for="(item, index) in rest"
+          :key="item.id"
+          v-reveal="(index + 1) * 80"
+        >
+          <ContentPublicationCard
+            :item="item"
+            base="/news"
+          />
         </div>
       </div>
     </div>

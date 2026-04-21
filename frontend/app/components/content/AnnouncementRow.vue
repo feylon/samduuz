@@ -22,11 +22,17 @@ const monthShort = computed(() =>
     </time>
     <div class="min-w-0 flex-1">
       <h3 class="font-display font-bold leading-snug text-highlighted transition-colors line-clamp-2 group-hover:text-primary">
-        <NuxtLink :to="localePath(`/announcements/${item.slug}`)" class="after:absolute after:inset-0">
+        <NuxtLink
+          :to="localePath(`/announcements/${item.slug}`)"
+          class="after:absolute after:inset-0"
+        >
           {{ item.title }}
         </NuxtLink>
       </h3>
-      <p v-if="item.description" class="mt-1.5 text-sm text-muted line-clamp-2">
+      <p
+        v-if="item.description"
+        class="mt-1.5 text-sm text-muted line-clamp-2"
+      >
         {{ item.description }}
       </p>
     </div>

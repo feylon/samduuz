@@ -22,7 +22,10 @@ const target = computed(() => {
   >
     <slot />
   </a>
-  <NuxtLink v-else-if="target" :to="target.href">
+  <NuxtLink
+    v-else-if="target"
+    :to="target.href"
+  >
     <slot />
   </NuxtLink>
   <span v-else>

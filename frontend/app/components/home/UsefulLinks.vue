@@ -13,16 +13,27 @@ const loop = computed(() => {
 </script>
 
 <template>
-  <section v-if="links?.length" class="overflow-hidden py-16 sm:py-20">
+  <section
+    v-if="links?.length"
+    class="overflow-hidden py-16 sm:py-20"
+  >
     <div class="container-page">
-      <ContentSectionHeading :eyebrow="$t('home.links_eyebrow')" :title="$t('home.links_title')" center />
+      <ContentSectionHeading
+        :eyebrow="$t('home.links_eyebrow')"
+        :title="$t('home.links_title')"
+        center
+      />
     </div>
 
     <div class="marquee group relative">
       <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--ui-bg)] to-transparent sm:w-40" />
       <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[var(--ui-bg)] to-transparent sm:w-40" />
       <ul class="marquee-track flex w-max gap-4 group-hover:[animation-play-state:paused] sm:gap-6">
-        <li v-for="(link, index) in loop" :key="`${link.id}-${index}`" :aria-hidden="index >= links.length">
+        <li
+          v-for="(link, index) in loop"
+          :key="`${link.id}-${index}`"
+          :aria-hidden="index >= links.length"
+        >
           <a
             :href="link.externalLink"
             target="_blank"

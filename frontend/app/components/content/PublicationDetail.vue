@@ -76,11 +76,17 @@ useJsonLd(() => item.value && ({
     >
       <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/70">
         <span class="flex items-center gap-2">
-          <UIcon name="i-lucide-calendar" class="size-4 text-gold-400" />
+          <UIcon
+            name="i-lucide-calendar"
+            class="size-4 text-gold-400"
+          />
           <time :datetime="item.publishedAt">{{ formatDate(item.publishedAt, locale, true) }}</time>
         </span>
         <span class="flex items-center gap-2">
-          <UIcon name="i-lucide-eye" class="size-4 text-gold-400" />
+          <UIcon
+            name="i-lucide-eye"
+            class="size-4 text-gold-400"
+          />
           {{ $t('content.views', { n: formatNumber(item.views) }) }}
         </span>
       </div>
@@ -88,7 +94,10 @@ useJsonLd(() => item.value && ({
 
     <div class="container-page grid gap-10 py-10 sm:py-14 lg:grid-cols-12">
       <article class="min-w-0 lg:col-span-8">
-        <figure v-if="item.mainImagePath" class="mb-8 overflow-hidden rounded-3xl bg-elevated shadow-sm">
+        <figure
+          v-if="item.mainImagePath"
+          class="mb-8 overflow-hidden rounded-2xl bg-elevated shadow-sm"
+        >
           <img
             :src="imageUrl"
             :alt="item.title"
@@ -99,14 +108,23 @@ useJsonLd(() => item.value && ({
           >
         </figure>
 
-        <p v-if="item.description" class="mb-8 border-l-4 border-secondary pl-5 text-lg font-medium leading-relaxed text-highlighted sm:text-xl">
+        <p
+          v-if="item.description"
+          class="mb-8 border-l-4 border-secondary pl-5 text-lg font-medium leading-relaxed text-highlighted sm:text-xl"
+        >
           {{ item.description }}
         </p>
 
-        <div class="rich-content" v-html="item.content" />
+        <div
+          class="rich-content"
+          v-html="item.content"
+        />
 
         <div class="mt-12 flex flex-col gap-4 border-t border-default pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <ContentShareButtons :title="item.title" :url="canonical" />
+          <ContentShareButtons
+            :title="item.title"
+            :url="canonical"
+          />
           <UButton
             :icon="liked ? 'i-lucide-heart' : 'i-lucide-heart'"
             :color="liked ? 'error' : 'neutral'"
@@ -120,14 +138,20 @@ useJsonLd(() => item.value && ({
         </div>
       </article>
 
-      <aside v-if="item.related.length" class="lg:col-span-4">
+      <aside
+        v-if="item.related.length"
+        class="lg:col-span-4"
+      >
         <div class="space-y-5 lg:sticky lg:top-[calc(var(--header-height)+1.5rem)]">
           <h2 class="font-display flex items-center gap-2 text-lg font-bold text-highlighted">
             <span class="h-5 w-1 rounded-full bg-secondary" />
             {{ relatedTitle }}
           </h2>
           <ul class="space-y-3">
-            <li v-for="related in item.related" :key="related.id">
+            <li
+              v-for="related in item.related"
+              :key="related.id"
+            >
               <NuxtLink
                 :to="localePath(`${base}/${related.slug}`)"
                 class="group flex gap-3 rounded-xl p-2 transition-colors hover:bg-elevated"
@@ -145,14 +169,22 @@ useJsonLd(() => item.value && ({
                   <p class="text-sm font-semibold leading-snug text-highlighted line-clamp-3 group-hover:text-primary">
                     {{ related.title }}
                   </p>
-                  <time :datetime="related.publishedAt" class="mt-1 block text-xs text-dimmed">
+                  <time
+                    :datetime="related.publishedAt"
+                    class="mt-1 block text-xs text-dimmed"
+                  >
                     {{ formatDate(related.publishedAt, locale) }}
                   </time>
                 </div>
               </NuxtLink>
             </li>
           </ul>
-          <UButton :to="localePath(base)" variant="soft" block trailing-icon="i-lucide-arrow-right">
+          <UButton
+            :to="localePath(base)"
+            variant="soft"
+            block
+            trailing-icon="i-lucide-arrow-right"
+          >
             {{ sectionTitle }}
           </UButton>
         </div>

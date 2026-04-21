@@ -14,8 +14,14 @@ useSeoMeta({
 </script>
 
 <template>
-  <UApp :toaster="{ position: 'top-right' }" :tooltip="{ delayDuration: 200 }">
-    <NuxtLoadingIndicator color="var(--ui-color-secondary-400)" :height="3" />
+  <UApp
+    :toaster="{ position: 'top-right' }"
+    :tooltip="{ delayDuration: 200 }"
+  >
+    <NuxtLoadingIndicator
+      color="var(--ui-color-secondary-400)"
+      :height="3"
+    />
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

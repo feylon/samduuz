@@ -32,25 +32,45 @@ const year = new Date().getFullYear()
               :aria-label="social.label"
               class="flex size-10 items-center justify-center rounded-full bg-white/10 transition-all hover:-translate-y-0.5 hover:bg-gold-500 hover:text-brand-950"
             >
-              <UIcon :name="social.icon" class="size-4" />
+              <UIcon
+                :name="social.icon"
+                class="size-4"
+              />
             </a>
           </div>
         </div>
       </div>
 
-      <div v-if="menus.length" class="lg:col-span-3">
+      <div
+        v-if="menus.length"
+        class="lg:col-span-3"
+      >
         <h2 class="mb-4 text-xs font-semibold uppercase tracking-wider text-gold-300">
           {{ $t('footer.sections') }}
         </h2>
         <ul class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm sm:grid-cols-1">
-          <template v-for="menu in menus" :key="menu.id">
+          <template
+            v-for="menu in menus"
+            :key="menu.id"
+          >
             <li v-if="menu.link">
-              <SiteMenuLink :link="menu.link" :is-external="menu.isExternal" class="text-white/70 transition-colors hover:text-white">
+              <SiteMenuLink
+                :link="menu.link"
+                :is-external="menu.isExternal"
+                class="text-white/70 transition-colors hover:text-white"
+              >
                 {{ menu.name }}
               </SiteMenuLink>
             </li>
-            <li v-for="child in menu.children.slice(0, 4)" :key="child.id">
-              <SiteMenuLink :link="child.link" :is-external="child.isExternal" class="text-white/70 transition-colors hover:text-white">
+            <li
+              v-for="child in menu.children.slice(0, 4)"
+              :key="child.id"
+            >
+              <SiteMenuLink
+                :link="child.link"
+                :is-external="child.isExternal"
+                class="text-white/70 transition-colors hover:text-white"
+              >
                 {{ child.name }}
               </SiteMenuLink>
             </li>
@@ -63,19 +83,40 @@ const year = new Date().getFullYear()
           {{ $t('footer.contacts') }}
         </h2>
         <p class="flex gap-2.5 text-white/70">
-          <UIcon name="i-lucide-map-pin" class="mt-0.5 size-4 shrink-0 text-gold-400" />
+          <UIcon
+            name="i-lucide-map-pin"
+            class="mt-0.5 size-4 shrink-0 text-gold-400"
+          />
           {{ $t('site.address') }}
         </p>
-        <a :href="`tel:${contacts.helpline.replace(/\s/g, '')}`" class="flex gap-2.5 text-white/70 hover:text-white">
-          <UIcon name="i-lucide-phone-call" class="mt-0.5 size-4 shrink-0 text-gold-400" />
+        <a
+          :href="`tel:${contacts.helpline.replace(/\s/g, '')}`"
+          class="flex gap-2.5 text-white/70 hover:text-white"
+        >
+          <UIcon
+            name="i-lucide-phone-call"
+            class="mt-0.5 size-4 shrink-0 text-gold-400"
+          />
           <span>{{ $t('footer.helpline') }}<br><span class="text-white">{{ contacts.helpline }}</span></span>
         </a>
-        <a :href="`tel:${contacts.phone.replace(/\s/g, '')}`" class="flex gap-2.5 text-white/70 hover:text-white">
-          <UIcon name="i-lucide-phone" class="mt-0.5 size-4 shrink-0 text-gold-400" />
+        <a
+          :href="`tel:${contacts.phone.replace(/\s/g, '')}`"
+          class="flex gap-2.5 text-white/70 hover:text-white"
+        >
+          <UIcon
+            name="i-lucide-phone"
+            class="mt-0.5 size-4 shrink-0 text-gold-400"
+          />
           <span>{{ $t('footer.reception') }}<br><span class="text-white">{{ contacts.phone }}</span></span>
         </a>
-        <a :href="`mailto:${contacts.email}`" class="flex gap-2.5 text-white/70 hover:text-white">
-          <UIcon name="i-lucide-mail" class="mt-0.5 size-4 shrink-0 text-gold-400" />
+        <a
+          :href="`mailto:${contacts.email}`"
+          class="flex gap-2.5 text-white/70 hover:text-white"
+        >
+          <UIcon
+            name="i-lucide-mail"
+            class="mt-0.5 size-4 shrink-0 text-gold-400"
+          />
           {{ contacts.email }}
         </a>
       </div>

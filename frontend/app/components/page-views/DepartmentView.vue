@@ -26,7 +26,10 @@ const socialItems = computed(() => {
 
 <template>
   <div class="space-y-8">
-    <figure v-if="details.mainPicture" class="overflow-hidden rounded-3xl bg-elevated shadow-sm">
+    <figure
+      v-if="details.mainPicture"
+      class="overflow-hidden rounded-2xl bg-elevated shadow-sm"
+    >
       <img
         :src="media(details.mainPicture)"
         :alt="details.name || title"
@@ -37,26 +40,53 @@ const socialItems = computed(() => {
     </figure>
 
     <div class="grid gap-8 lg:grid-cols-12">
-      <section v-if="details.content" class="rounded-3xl border border-default bg-default p-6 sm:p-8 lg:col-span-8">
+      <section
+        v-if="details.content"
+        class="rounded-2xl border border-default bg-default p-6 sm:p-8 lg:col-span-8"
+      >
         <h2 class="font-display mb-5 flex items-center gap-2 text-lg font-bold text-highlighted">
           <span class="h-5 w-1 rounded-full bg-secondary" />
           {{ $t('department.about') }}
         </h2>
-        <div class="rich-content" v-html="details.content" />
+        <div
+          class="rich-content"
+          v-html="details.content"
+        />
       </section>
 
       <aside class="space-y-6 lg:col-span-4">
-        <div v-if="contactItems.length" class="rounded-3xl bg-gradient-to-br from-brand-900 to-brand-950 p-6 text-white sm:p-8">
-          <h2 class="font-display mb-5 text-lg font-bold">{{ $t('department.contacts') }}</h2>
+        <div
+          v-if="contactItems.length"
+          class="rounded-2xl bg-gradient-to-br from-brand-900 to-brand-950 p-6 text-white sm:p-8"
+        >
+          <h2 class="font-display mb-5 text-lg font-bold">
+            {{ $t('department.contacts') }}
+          </h2>
           <ul class="space-y-4 text-sm">
-            <li v-for="contact in contactItems" :key="contact.icon" class="flex gap-3">
-              <UIcon :name="contact.icon" class="mt-0.5 size-5 shrink-0 text-gold-400" />
-              <a v-if="contact.href" :href="contact.href" class="break-all hover:text-gold-300">{{ contact.value }}</a>
+            <li
+              v-for="contact in contactItems"
+              :key="contact.icon"
+              class="flex gap-3"
+            >
+              <UIcon
+                :name="contact.icon"
+                class="mt-0.5 size-5 shrink-0 text-gold-400"
+              />
+              <a
+                v-if="contact.href"
+                :href="contact.href"
+                class="break-all hover:text-gold-300"
+              >{{ contact.value }}</a>
               <span v-else>{{ contact.value }}</span>
             </li>
           </ul>
-          <div v-if="socialItems.length" class="mt-6 border-t border-white/10 pt-5">
-            <p class="mb-3 text-xs uppercase tracking-wider text-white/60">{{ $t('department.socials') }}</p>
+          <div
+            v-if="socialItems.length"
+            class="mt-6 border-t border-white/10 pt-5"
+          >
+            <p class="mb-3 text-xs uppercase tracking-wider text-white/60">
+              {{ $t('department.socials') }}
+            </p>
             <div class="flex gap-2">
               <a
                 v-for="social in socialItems"
@@ -67,7 +97,10 @@ const socialItems = computed(() => {
                 :aria-label="social.label"
                 class="flex size-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-gold-500 hover:text-brand-950"
               >
-                <UIcon :name="social.icon" class="size-4" />
+                <UIcon
+                  :name="social.icon"
+                  class="size-4"
+                />
               </a>
             </div>
           </div>

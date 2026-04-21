@@ -31,8 +31,14 @@ useJsonLd(() => ({
 
 <template>
   <div class="flex min-h-dvh flex-col bg-default">
-    <SiteHeader :menus="menus ?? []" :pending="pending" />
-    <main id="main" class="flex-1">
+    <SiteHeader
+      :menus="menus ?? []"
+      :pending="pending"
+    />
+    <main
+      id="main"
+      class="flex-1"
+    >
       <slot />
     </main>
     <SiteFooter :menus="menus ?? []" />
