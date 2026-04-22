@@ -1,0 +1,65 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    environment:
+      NODE_ENV: production
+      APP_PORT: 5454
+      APP_URL: http://localhost:${BACKEND_PORT:-5454}
+      FRONTEND_URL: ${PUBLIC_SITE_URL}
+      CORS_ORIGINS: ${PUBLIC_SITE_URL},http://127.0.0.1:${FRONTEND_PORT:-3000}
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      SEED_DEMO: ${SEED_DEMO:-true}
+      UPLOAD_DIR: /app/uploads
+    ports:
+      - "${BACKEND_PORT:-5454}:5454"
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    environment:
+      NUXT_API_INTERNAL: http://backend:5454/api
+      NUXT_PUBLIC_API_BASE: ${PUBLIC_API_URL}
+      NUXT_PUBLIC_UPLOADS_BASE: ${PUBLIC_UPLOADS_URL}
+      NUXT_PUBLIC_SITE_URL: ${PUBLIC_SITE_URL}
+      NUXT_PUBLIC_I18N_BASE_URL: ${PUBLIC_SITE_URL}
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  uploads:

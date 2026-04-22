@@ -5,10 +5,8 @@ const props = defineProps<{ item: PublicationListItem }>()
 
 const { locale } = useI18n()
 const localePath = useLocalePath()
-const date = computed(() => new Date(props.item.publishedAt))
-const monthShort = computed(() =>
-  date.value.toLocaleDateString(locale.value === 'en' ? 'en-GB' : 'ru-RU', { month: 'short' }).replace('.', '')
-)
+const day = computed(() => dateParts(props.item.publishedAt).day)
+const monthShort = computed(() => formatMonthShort(props.item.publishedAt, locale.value))
 </script>
 
 <template>
@@ -17,7 +15,7 @@ const monthShort = computed(() =>
       :datetime="item.publishedAt"
       class="flex size-16 shrink-0 flex-col items-center justify-center rounded-xl bg-gradient-to-br from-brand-800 to-brand-950 text-white shadow-inner sm:size-18"
     >
-      <span class="font-display text-2xl font-extrabold leading-none">{{ date.getDate() }}</span>
+      <span class="font-display text-2xl font-extrabold leading-none">{{ day }}</span>
       <span class="mt-1 text-[11px] font-medium uppercase tracking-wide text-gold-300">{{ monthShort }}</span>
     </time>
     <div class="min-w-0 flex-1">

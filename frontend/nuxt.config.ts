@@ -3,21 +3,6 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  css: ['~/assets/css/main.css'],
-
-  runtimeConfig: {
-    apiInternal: '',
-    public: {
-      apiBase: 'http://localhost:5454/api',
-      uploadsBase: 'http://localhost:5454/uploads',
-      siteUrl: 'http://localhost:3000',
-      siteName: 'SamDU',
-      i18n: {
-        baseUrl: 'http://localhost:3000'
-      }
-    }
-  },
-
   app: {
     head: {
       htmlAttrs: { lang: 'uz' },
@@ -33,6 +18,21 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
         { rel: 'manifest', href: '/site.webmanifest' }
       ]
+    }
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  runtimeConfig: {
+    apiInternal: '',
+    public: {
+      apiBase: 'http://localhost:5454/api',
+      uploadsBase: 'http://localhost:5454/uploads',
+      siteUrl: 'http://localhost:3000',
+      siteName: 'SamDU',
+      i18n: {
+        baseUrl: 'http://localhost:3000'
+      }
     }
   },
 
@@ -69,12 +69,6 @@ export default defineNuxtConfig({
     }
   },
 
-  icon: {
-    serverBundle: {
-      collections: ['lucide', 'simple-icons', 'circle-flags']
-    }
-  },
-
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'uz',
@@ -93,6 +87,12 @@ export default defineNuxtConfig({
     },
     compilation: {
       strictMessage: false
+    }
+  },
+
+  icon: {
+    serverBundle: {
+      collections: ['lucide', 'simple-icons', 'circle-flags']
     }
   }
 })

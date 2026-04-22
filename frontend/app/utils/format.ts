@@ -10,25 +10,51 @@ const monthNames: Record<string, string[]> = {
   kr: ['январ', 'феврал', 'март', 'апрел', 'май', 'июн', 'июл', 'август', 'сентабр', 'октабр', 'ноябр', 'декабр']
 }
 
+const TIME_ZONE = 'Asia/Tashkent'
+
+export const dateParts = (value: string | Date) => {
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: TIME_ZONE,
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date(value))
+  const pick = (type: Intl.DateTimeFormatPartTypes) => Number(parts.find(part => part.type === type)?.value ?? 0)
+  return { year: pick('year'), month: pick('month') - 1, day: pick('day'), hour: pick('hour'), minute: pick('minute') }
+}
+
 export const formatDate = (value?: string | Date | null, locale = 'uz', withTime = false) => {
   if (!value) return ''
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return ''
 
+  const parts = dateParts(date)
   const time = withTime
-    ? `, ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`
+    ? `, ${String(parts.hour).padStart(2, '0')}:${String(parts.minute).padStart(2, '0')}`
     : ''
 
   const months = monthNames[locale]
   if (months) {
-    return `${date.getDate()}-${months[date.getMonth()]}, ${date.getFullYear()}${time}`
+    return `${parts.day}-${months[parts.month]}, ${parts.year}${time}`
   }
 
   return date.toLocaleDateString(intlLocales[locale] ?? 'en-GB', {
+    timeZone: TIME_ZONE,
     day: 'numeric',
     month: 'long',
     year: 'numeric'
   }) + time
+}
+
+export const formatMonthShort = (value: string | Date, locale = 'uz') => {
+  const months = monthNames[locale]
+  if (months) return months[dateParts(value).month]!.slice(0, 3)
+  return new Date(value)
+    .toLocaleDateString(intlLocales[locale] ?? 'en-GB', { timeZone: TIME_ZONE, month: 'short' })
+    .replace('.', '')
 }
 
 export const formatNumber = (value: number) =>
