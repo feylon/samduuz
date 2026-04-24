@@ -29,10 +29,7 @@ export default defineNuxtConfig({
       apiBase: 'http://localhost:5454/api',
       uploadsBase: 'http://localhost:5454/uploads',
       siteUrl: 'http://localhost:3000',
-      siteName: 'SamDU',
-      i18n: {
-        baseUrl: 'http://localhost:3000'
-      }
+      siteName: 'SamDU'
     }
   },
 
@@ -70,7 +67,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    strategy: 'prefix_except_default',
+    strategy: 'no_prefix',
     defaultLocale: 'uz',
     langDir: 'locales',
     customRoutes: 'meta',
@@ -80,11 +77,7 @@ export default defineNuxtConfig({
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
     ],
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'samdu_lang',
-      redirectOn: 'root'
-    },
+    detectBrowserLanguage: false,
     compilation: {
       strictMessage: false
     }

@@ -5,7 +5,7 @@ import { localeFlags } from '~/constants/site'
 withDefaults(defineProps<{ block?: boolean }>(), { block: false })
 
 const { locale, locales } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+const { changeLocale } = useLocaleStorage()
 
 const current = computed(() => locales.value.find(item => item.code === locale.value))
 
@@ -13,7 +13,7 @@ const items = computed<DropdownMenuItem[]>(() =>
   locales.value.map(item => ({
     label: item.name,
     icon: localeFlags[item.code],
-    to: switchLocalePath(item.code),
+    onSelect: () => changeLocale(item.code),
     active: item.code === locale.value,
     class: item.code === locale.value ? 'font-semibold' : ''
   }))

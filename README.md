@@ -21,11 +21,12 @@ Sayt to‘rt tilda ishlaydi: **o‘zbekcha (lotin)**, **ўзбекча (кири
 - Yorug‘ va tungi rejim, barcha ekran o‘lchamlari uchun moslashuvchan dizayn
 
 **SEO**
-- Barcha materiallar `slug` orqali ochiladi: `/news/xalqaro-ilmiy-konferensiya`, `/ru/pages/universitet-tarixi`
+- Barcha materiallar `slug` orqali ochiladi: `/news/xalqaro-ilmiy-konferensiya`, `/pages/universitet-tarixi`
 - Slug o‘zbekcha sarlavhadan avtomatik yaratiladi (kirill harflari lotinga o‘giriladi), kerak bo‘lsa qo‘lda ham beriladi
-- Har bir tilning alohida URL manzili, `hreflang`, `canonical`, Open Graph va Twitter Card teglari
+- URL'da til prefiksi yo‘q: tanlangan til brauzerning `localStorage`ida (`samdu_lang` kaliti) saqlanadi va keyingi kirishda avtomatik qo‘llanadi
+- `canonical`, Open Graph va Twitter Card teglari
 - Schema.org strukturaviy ma’lumotlari: `CollegeOrUniversity`, `NewsArticle`, `BreadcrumbList`, `Person`
-- Barcha tillardagi sahifalarni o‘z ichiga olgan `/sitemap.xml` va `/robots.txt`
+- Barcha sahifalarni o‘z ichiga olgan `/sitemap.xml` va `/robots.txt`
 - Server tomonda render (SSR), admin panel esa qidiruv tizimlaridan yopilgan
 
 **Admin panel** (`/admin`)
@@ -212,7 +213,7 @@ Frontend skriptlari:
 | `NUXT_PUBLIC_API_BASE` | Brauzerdan API manzili |
 | `NUXT_API_INTERNAL` | SSR paytida server ichidan API manzili |
 | `NUXT_PUBLIC_UPLOADS_BASE` | Yuklangan fayllar manzili |
-| `NUXT_PUBLIC_SITE_URL`, `NUXT_PUBLIC_I18N_BASE_URL` | Saytning to‘liq manzili |
+| `NUXT_PUBLIC_SITE_URL` | Saytning to‘liq manzili |
 
 ---
 

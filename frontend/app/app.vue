@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const head = useLocaleHead({ seo: true })
-const { t } = useI18n()
+const { t, locale, locales } = useI18n()
+
+const language = computed(() => locales.value.find(item => item.code === locale.value)?.language ?? 'uz')
 
 useHead({
-  htmlAttrs: { lang: () => head.value.htmlAttrs?.lang },
-  link: () => head.value.link ?? [],
-  meta: () => head.value.meta ?? []
+  htmlAttrs: { lang: language }
 })
 
 useSeoMeta({
-  description: () => t('site.description')
+  description: () => t('site.description'),
+  ogLocale: () => language.value.replace(/-/g, '_')
 })
 </script>
 
